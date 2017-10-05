@@ -1,2 +1,0 @@
-# WrittenTest00
-personalCode
