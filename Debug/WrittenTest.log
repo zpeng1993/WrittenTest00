@@ -1,0 +1,21 @@
+﻿生成启动时间为 2017/10/4 23:38:42。
+     1>项目“E:\pku graduate\c programming\Visual Studio 2013 projects\WrittenTest\WrittenTest.vcxproj”在节点 2 上(Build 个目标)。
+     1>ClCompile:
+         D:\Program Files\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"E:\pku graduate\c programming\Visual Studio 2013 projects\WrittenTest\Head_h" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt KingMethods\KingMethods.cpp main\main.cpp
+         main.cpp
+         KingMethods.cpp
+     1>e:\pku graduate\c programming\visual studio 2013 projects\writtentest\kingmethods\kingmethods.cpp(21): warning C4309: “初始化”: 截断常量值
+     1>e:\pku graduate\c programming\visual studio 2013 projects\writtentest\kingmethods\kingmethods.cpp(31): warning C4309: “初始化”: 截断常量值
+         正在生成代码...
+       Link:
+         D:\Program Files\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\pku graduate\c programming\Visual Studio 2013 projects\WrittenTest\Debug\WrittenTest.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:\pku graduate\c programming\Visual Studio 2013 projects\WrittenTest\Debug\WrittenTest.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\pku graduate\c programming\Visual Studio 2013 projects\WrittenTest\Debug\WrittenTest.lib" /MACHINE:X86 Debug\KingMethods.obj
+         Debug\main.obj
+         Debug\PerfectWorld0926.obj
+         Debug\platform.obj
+         Debug\vectorlearning.obj
+         WrittenTest.vcxproj -> E:\pku graduate\c programming\Visual Studio 2013 projects\WrittenTest\Debug\WrittenTest.exe
+     1>已完成生成项目“E:\pku graduate\c programming\Visual Studio 2013 projects\WrittenTest\WrittenTest.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:05.50
