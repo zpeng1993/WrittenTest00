@@ -11,6 +11,7 @@ struct S
 	int a;
 	char c;
 	int b;
+	struct S *next;
 };
 
 

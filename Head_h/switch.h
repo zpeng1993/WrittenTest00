@@ -2,6 +2,7 @@
 #define _SWITCH_H_
 #include<iostream>
 #include<vector>
+#include<algorithm>
 #include <windows.h>
 
 using namespace std;
@@ -9,8 +10,9 @@ using namespace std;
 //function switch
 #define PerfectWorld 0x0
 #define Huawei 0x0
-#define VectorLearning 0x3
-#define KingMethods 0x4
+#define VectorLearning 0x0
+#define KingMethods 0x0
+#define AcmCoder 0x5
 
 //return value
 #define RET_OK    1
