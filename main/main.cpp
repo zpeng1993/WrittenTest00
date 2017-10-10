@@ -2,6 +2,8 @@
 #include "PerfectWorld.h"
 #include "huawei.h"
 #include "kingmethods.h"
+#include "class.h"
+#include "AcmCoder.h"
 
 using namespace std;
 
@@ -100,6 +102,22 @@ int main()
 		cout << data[i] << " ";
 	}
 	testppc();
+	X* px = new X();
+	delete px;
+	struct S *pS = new struct S;
+	if (pS->next)
+	{
+		cout << endl << "pS -> next" << pS->next << endl;
+		if (pS->next->next)
+		{
+			cout << endl << "pS -> next -> next" << pS->next->next << endl;
+
+		}
+	}
+#endif
+#if AcmCoder
+	ChangeCmdColor(SetCmdColor(AcmCoder));
+	AcmCoderMain();
 #endif
 	return 0;
 }
