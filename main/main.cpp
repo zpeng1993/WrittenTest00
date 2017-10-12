@@ -4,6 +4,8 @@
 #include "kingmethods.h"
 #include "class.h"
 #include "AcmCoder.h"
+#include "vectorlearning.h"
+#include "Aha.h"
 
 using namespace std;
 
@@ -63,15 +65,21 @@ int main()
 	cout << endl << "reserve :" << icap.reserve << endl;
 #endif
 
-#ifdef VectorLearning
+#if VectorLearning
 	vector<int> vectorlearning;
 	ChangeCmdColor(VectorLearning % CMD_TEXT_COLOR_BUTT);
 	cout << endl << "/***********************************************************/" << endl;
 	cout << endl << "--------------Learning Vector Test!---------------------" << endl;
 	cout << endl << "/***********************************************************/" << endl;
+	if (VectorLearningMain() != RET_OK)
+	{
+		cout << __FILE__ << TwoSpaceKey << __LINE__ << TwoSpaceKey << "Entry VectorLearningMain fail!" << endl;
+		return 0;
+	}
+
 #endif
 
-#ifdef KingMethods
+#if KingMethods
 	int data[] = { 1, 2, 3, 4, 5, 6, 8, 89, 9, 1, 2, 3, 4, 5, 6, 8, 7, 9 };
 	int num1;
 	int num2;
@@ -92,7 +100,7 @@ int main()
 	cout << v.at(0) << endl;
 	cout <<endl << OFFSET(S, b)<< endl;
 	ACCESS_BEFORE(data[5], 4, 6);
-	
+
 	cout << endl;
 	str = GetString();
 	free(str);
@@ -115,9 +123,47 @@ int main()
 		}
 	}
 #endif
+
+	/*
+	* This part is about codes from AcmCoder!
+	* authhor: zpeng 2017
+	*
+	*/
 #if AcmCoder
 	ChangeCmdColor(SetCmdColor(AcmCoder));
+	cout << endl << "/***********************************************************/" << endl;
+	cout << endl << "--------------AcmCoder Test!---------------------" << endl;
+	cout << endl << "/***********************************************************/" << endl;
+	City();
 	AcmCoderMain();
+#endif
+
+#if Aha
+	ChangeCmdColor(SetCmdColor(Aha));
+	cout << endl << "/***********************************************************/" << endl;
+	cout << endl << "--------------Aha Algorithm Test!---------------------" << endl;
+	cout << endl << "/***********************************************************/" << endl;
+	if (RET_OK != AhaMain())
+	{
+		cout << __FILE__ << TwoSpaceKey << "Line: " << __LINE__ << "Entry AhaMain fail!" << endl;
+
+	}
+#endif
+
+	/*
+	*	These codes are some tests about polymorphism in c++.
+	*	edited by zpeng in 2017
+	*/
+#if Class
+	ChangeCmdColor(SetCmdColor(Class));
+	cout << endl << "/***********************************************************/" << endl;
+	cout << endl << "--------------polymorphism Test!---------------------" << endl;
+	cout << endl << "/***********************************************************/" << endl;
+	if (RET_OK != ClassMain())
+	{
+		cout << __FILE__ << TwoSpaceKey << "Line: " << __LINE__ << "Entry ClassMain fail!" << endl;
+	}
 #endif
 	return 0;
 }
+

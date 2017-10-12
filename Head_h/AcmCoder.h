@@ -8,6 +8,15 @@ typedef struct DataNode_S
 	int id;
 }DataNode;
 
+typedef struct cityNode_S
+{
+	int cityid;
+	int times;
+
+}cityNode;
+
 int AcmCoderMain();
+
+int City();
 
 #endif
