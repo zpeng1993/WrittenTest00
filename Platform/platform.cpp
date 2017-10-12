@@ -4,7 +4,7 @@ int ChangeCmdColor(int color)
 {
 	if (CMD_TEXT_COLOR_BUTT <= color || color < CMD_TEXT_COLOR_ORIGIN)
 	{
-		cout << "color is invalid!\n" << endl;
+		cout << __FILE__ << TwoSpaceKey<< __LINE__<< TwoSpaceKey <<"colorpara is invalid!\n" << endl;
 		return RET_ERROR;
 	}
 	switch (color)

@@ -3,16 +3,24 @@
 #include<iostream>
 #include<vector>
 #include<algorithm>
+#include<string>
+#include <stack>
 #include <windows.h>
 
 using namespace std;
 
+#define SWITCH 0x0
+
+#define TwoSpaceKey "  "
+
 //function switch
-#define PerfectWorld 0x0
-#define Huawei 0x0
-#define VectorLearning 0x0
-#define KingMethods 0x0
-#define AcmCoder 0x5
+#define PerfectWorld ( 0x1 & SWITCH )
+#define Huawei ( 0x2 & SWITCH ) 
+#define VectorLearning ( 0x3  )
+#define KingMethods ( 0x4 & SWITCH )
+#define AcmCoder ( 0x5 & SWITCH )
+#define Aha (0x6 & SWITCH )
+#define Class (0x7 )
 
 //return value
 #define RET_OK    1
@@ -28,7 +36,7 @@ using namespace std;
 #define OWN_UINT32 unsigned int
 #define OWN_INT32 signed int
 
-#define SetCmdColor(color) (color % CMD_TEXT_COLOR_BUTT)
+#define SetCmdColor(color) ( color % CMD_TEXT_COLOR_BUTT )
 
 
 
