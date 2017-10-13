@@ -14,13 +14,14 @@ using namespace std;
 #define TwoSpaceKey "  "
 
 //function switch
-#define PerfectWorld ( 0x1 & SWITCH )
+#define PerfectWorld ( 0x1  )
 #define Huawei ( 0x2 & SWITCH ) 
-#define VectorLearning ( 0x3  )
+#define VectorLearning ( 0x3 & SWITCH)
 #define KingMethods ( 0x4 & SWITCH )
 #define AcmCoder ( 0x5 & SWITCH )
 #define Aha (0x6 & SWITCH )
 #define Class (0x7 )
+#define CSDN (0x8)
 
 //return value
 #define RET_OK    1

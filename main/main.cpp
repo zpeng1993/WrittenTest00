@@ -6,6 +6,7 @@
 #include "AcmCoder.h"
 #include "vectorlearning.h"
 #include "Aha.h"
+#include "CSDN.h"
 
 using namespace std;
 
@@ -162,6 +163,17 @@ int main()
 	if (RET_OK != ClassMain())
 	{
 		cout << __FILE__ << TwoSpaceKey << "Line: " << __LINE__ << "Entry ClassMain fail!" << endl;
+	}
+#endif
+
+#if CSDN
+	ChangeCmdColor(SetCmdColor(CSDN));
+	cout << endl << "/***********************************************************/" << endl;
+	cout << endl << "--------------CSDN Tests!---------------------" << endl;
+	cout << endl << "/***********************************************************/" << endl;
+	if (RET_OK != CSDNMain())
+	{
+		cout << __FILE__ << TwoSpaceKey << "Line: " << __LINE__ << "Entry CSDNMain fail!" << endl;
 	}
 #endif
 	return 0;
