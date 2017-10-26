@@ -3,6 +3,46 @@
 #include "switch.h"
 using namespace std;
 
+struct TreeNode 
+{
+	int val;
+	TreeNode *left;
+	TreeNode *right;
+	TreeNode(int x) : val(x), left(NULL), right(NULL) {}
+};
+
+struct RandomListNode 
+{
+	int label;
+	RandomListNode *next, *random;
+	RandomListNode(int x) : label(x), next(NULL), random(NULL) {}
+	
+};
+
+class Solution {
+public:
+	Solution() :root(NULL) {}
+	void InitTree();
+	void start();
+	int sumNumbers(TreeNode *root);
+	int GetPathSum(vector<int> &vect);
+	int GetPathSum(vector<TreeNode*> &vect);
+	void GetIntVector(TreeNode *root, vector<TreeNode*> &pTNode,vector<int> &vect);
+private:
+	TreeNode* root;
+};
+
+class LongestConsecutiveSequence
+{
+public:
+	LongestConsecutiveSequence();
+	void start();
+	
+private:
+	int longestConsecutive(vector<int> &num);
+	vector<int> num;
+};
+
 class X
 {
 public:

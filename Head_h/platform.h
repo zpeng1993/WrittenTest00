@@ -15,6 +15,7 @@ typedef enum EN_CMD_TEXT_COLOR
 
 
 int ChangeCmdColor(int EN_CMD_TEXT_COLOR);
+int FindGCD(const int num1, const int num2);
 
 
 #endif

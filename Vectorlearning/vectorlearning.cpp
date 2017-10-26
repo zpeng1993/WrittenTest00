@@ -1,5 +1,21 @@
 #include "vectorlearning.h"
 
+void testFind()
+{
+	string str = "1q2w3e4r5t6y7u8i9o0p";
+	size_t m = str.find('w', 1);
+	cout.width(5);
+	cout << "str.find('w',1)" << m << endl;
+	m = str.rfind("2w3e4", 9);
+	cout << "str.find(\"2w3e4\",9)" << m << endl;
+	string st = "1111111111";           //10个字符  
+	cout << st.rfind("1111", 9) << endl;  //按照定义应返回6，正确  
+	cout << st.rfind("1111", 7) << endl;  //按照定义应返回4，实际是6  
+	cout << st.rfind("1111", 5) << endl;  //按照定义应返回2，实际是5  
+	cout << st.rfind("1111", 2) << endl;  //按照定义应返回-1，实际是2 
+
+}
+
 void CatalanFuncKuohao(vector<char> &kind,int count[], int n)
 {
 	if (count[0] >= 1)
@@ -72,6 +88,8 @@ void CatalanFuncStackPop(vector<char> &PopStack, int count[], int n, const int A
 void testString()
 {
 	string str("123456789");
+	//string strClone = str;
+
 	char ch[] = "abcdefgh";
 	string a(ch);
 	cout << str << "   "<< a << endl;
@@ -105,9 +123,41 @@ void testString()
 
 }
 
+void testunion()
+{
+	int nA, nB;
+	while (cin >> nA >> nB)
+	{
+		int input;
+		vector<int> vectA, vectB;
+		for (int i = 0; i<nA; i++)
+		{
+			cin >> input;
+			vectA.push_back(input);
+		}
+		for (int j = 0; j<nB; j++)
+		{
+			cin >> input;
+			vectB.push_back(input);
+		}
+		vector<int> vectC(vectA.size() + vectB.size());
+		vector<int>::iterator iter;
+		//set_union(vectA.begin(), vectA.end(), vectB.begin(), vectB.end(), ostream_iterator<int>(cout ," "));
+		iter = set_union(vectA.begin(), vectA.end(), vectB.begin(), vectB.end(), vectC.begin());
+		for (vector<int>::iterator it = vectC.begin(); it != iter - 1; ++it)
+		{
+			cout << *it << " ";
+		}
+		cout << *(--iter) << endl;
+	}
+}
+
 int VectorLearningMain()
 {
+	testunion();
+	SetLearningMain();
 	testString();
+	testFind();
 	int n;
 	cout << "Please input thee number of ():" << endl;
 	cin >> n;

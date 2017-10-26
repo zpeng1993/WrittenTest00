@@ -2,7 +2,9 @@
 #define _VECTORLEARNING_H_
 #include "switch.h"
 
+//Vector
 int VectorLearningMain();
+
 void testString();
 void CatalanFuncKuohao(vector<char> &kind,int count[],int n);
 void CatalanFuncStackPop
@@ -13,5 +15,15 @@ void CatalanFuncStackPop
 	const int A[],
 	int& total
 );
+
+void testFind();
+void testunion();
+
+//Set & multiset
+int SetLearningMain();
+void MaxMinBills();
+
+//Map & Multimap
+int MapLearningMain();
 
 #endif

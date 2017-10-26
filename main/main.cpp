@@ -7,6 +7,9 @@
 #include "vectorlearning.h"
 #include "Aha.h"
 #include "CSDN.h"
+#include "Aqiyi2071014.h"
+#include "Dcits.h"
+#include "ByteDance.h"
 
 using namespace std;
 
@@ -47,6 +50,7 @@ int main()
 		return 0;
 	}
 	cout << pstart << endl;
+	GetShortestDownload();
 #endif
 
 #if Huawei
@@ -71,7 +75,7 @@ int main()
 	ChangeCmdColor(VectorLearning % CMD_TEXT_COLOR_BUTT);
 	cout << endl << "/***********************************************************/" << endl;
 	cout << endl << "--------------Learning Vector Test!---------------------" << endl;
-	cout << endl << "/***********************************************************/" << endl;
+	cout << endl << "/***********************************************************/" << endl<<endl;
 	if (VectorLearningMain() != RET_OK)
 	{
 		cout << __FILE__ << TwoSpaceKey << __LINE__ << TwoSpaceKey << "Entry VectorLearningMain fail!" << endl;
@@ -135,15 +139,17 @@ int main()
 	cout << endl << "/***********************************************************/" << endl;
 	cout << endl << "--------------AcmCoder Test!---------------------" << endl;
 	cout << endl << "/***********************************************************/" << endl;
-	City();
+	//City();
 	AcmCoderMain();
+	//ByteDanceMain();
+	//ByteDanceTest2();
 #endif
 
 #if Aha
 	ChangeCmdColor(SetCmdColor(Aha));
 	cout << endl << "/***********************************************************/" << endl;
 	cout << endl << "--------------Aha Algorithm Test!---------------------" << endl;
-	cout << endl << "/***********************************************************/" << endl;
+	cout << endl << "/***********************************************************/" << endl << endl;
 	if (RET_OK != AhaMain())
 	{
 		cout << __FILE__ << TwoSpaceKey << "Line: " << __LINE__ << "Entry AhaMain fail!" << endl;
@@ -159,7 +165,7 @@ int main()
 	ChangeCmdColor(SetCmdColor(Class));
 	cout << endl << "/***********************************************************/" << endl;
 	cout << endl << "--------------polymorphism Test!---------------------" << endl;
-	cout << endl << "/***********************************************************/" << endl;
+	cout << endl << "/***********************************************************/" << endl<<endl;
 	if (RET_OK != ClassMain())
 	{
 		cout << __FILE__ << TwoSpaceKey << "Line: " << __LINE__ << "Entry ClassMain fail!" << endl;
@@ -170,12 +176,47 @@ int main()
 	ChangeCmdColor(SetCmdColor(CSDN));
 	cout << endl << "/***********************************************************/" << endl;
 	cout << endl << "--------------CSDN Tests!---------------------" << endl;
-	cout << endl << "/***********************************************************/" << endl;
+	cout << endl << "/***********************************************************/" << endl << endl;
 	if (RET_OK != CSDNMain())
 	{
 		cout << __FILE__ << TwoSpaceKey << "Line: " << __LINE__ << "Entry CSDNMain fail!" << endl;
 	}
 #endif
+
+#if Aqiyi
+	ChangeCmdColor(SetCmdColor(Aqiyi));
+	cout << endl << "/***********************************************************/" << endl;
+	cout << endl << "--------------Aqiyi Witten Tests!---------------------" << endl;
+	cout << endl << "/***********************************************************/" << endl << endl;
+	if (RET_OK != AqiyiMain())
+	{
+		cout << __FILE__ << TwoSpaceKey << "Line: " << __LINE__ << "Entry AqiyiMain fail!" << endl;
+	}
+
+#endif
+
+#if Dcits
+	ChangeCmdColor(SetCmdColor(Dcits));
+	cout << endl << "/***********************************************************/" << endl;
+	cout << endl << "--------------Dcits Witten Tests in 2017/10/15 !---------------------" << endl;
+	cout << endl << "/***********************************************************/" << endl << endl;
+	if (RET_OK != DcitsMain())
+	{
+		cout << __FILE__ << TwoSpaceKey << "Line: " << __LINE__ << "Entry DcitsMain fail!" << endl;
+	}
+#endif
+
+#if ByteDance
+	ChangeCmdColor(SetCmdColor(ByteDance));
+	cout << endl << "/***********************************************************/" << endl;
+	cout << endl << "--------------ByteDance Witten Tests in 2017/10/17 !---------------------" << endl;
+	cout << endl << "/***********************************************************/" << endl << endl;
+	if (RET_OK != ByteDanceMain())
+	{
+		cout << __FILE__ << TwoSpaceKey << "Line: " << __LINE__ << "Entry ByteDanceMain fail!" << endl;
+	}
+#endif
+
 	return 0;
 }
 
