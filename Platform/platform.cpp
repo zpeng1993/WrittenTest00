@@ -26,3 +26,25 @@ int ChangeCmdColor(int color)
 	}
 	return RET_OK;
 }
+
+int FindGCD(const int num1,const int num2)
+{
+	if (num1 == 0 || num2 == 0)
+	{
+		return 0;
+	}
+	int A = num1;
+	int B = num2;
+	while (A != B)
+	{
+		if (A > B)
+		{
+			A = A - B;
+		}
+		else
+		{
+			B = B - A;
+		}
+	}
+	return A;
+}
