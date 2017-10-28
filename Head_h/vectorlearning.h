@@ -19,11 +19,15 @@ void CatalanFuncStackPop
 void testFind();
 void testunion();
 
+
 //Set & multiset
 int SetLearningMain();
 void MaxMinBills();
 
 //Map & Multimap
 int MapLearningMain();
+
+//string
+void testDelStr();
 
 #endif

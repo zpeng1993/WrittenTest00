@@ -19,19 +19,23 @@ int ByteDancePushBox()
 	mm = vector<vector<char>>(m, vector<char>(n));
 
 	for (int i = 0; i < m; i++)
-	for (int j = 0; j < n; j++) {
+	for (int j = 0; j < n; j++) 
+	{
 		char t;
 		cin >> t;
-		if (t == 'S') {
+		if (t == 'S') 
+		{
 			x = i;
 			y = j;
 			// cout <<x<<" "<<y<<endl;
 		}
-		if (t == '0') {
+		if (t == '0') 
+		{
 			bx = i;
 			by = j;
 		}
-		if (t == 'E') {
+		if (t == 'E') 
+		{
 			tx = i;
 			ty = j;
 		}
@@ -43,24 +47,29 @@ int ByteDancePushBox()
 	que.push({ x, y, bx, by });
 
 	st[x][y][bx][by] = 1;
-	while (!que.empty()) {
+	while (!que.empty())
+	{
 		vector<int> t = (vector<int> &&) que.front();
 		que.pop();
 		x = t[0];
 		y = t[1];
 		bx = t[2];
 		by = t[3];
-		for (int i = 0; i < next.size(); i++) {
+		for (int i = 0; i < next.size(); i++) 
+		{
 			int nx = x + next[i][0], ny = y + next[i][1];
 			int nnx = nx + next[i][0], nny = ny + next[i][1];
-			if (valid(nx, ny) && (nx != bx || ny != by) && st[nx][ny][bx][by] == 0) {
+			if (valid(nx, ny) && (nx != bx || ny != by) && st[nx][ny][bx][by] == 0) 
+			{
 				st[nx][ny][bx][by] = st[x][y][bx][by] + 1;
 				que.push({ nx, ny, bx, by });
 				continue;
 			}
-			else if (nx == bx && ny == by && valid(nnx, nny) && st[nx][ny][nnx][nny] == 0) {
+			else if (nx == bx && ny == by && valid(nnx, nny) && st[nx][ny][nnx][nny] == 0) 
+			{
 				st[nx][ny][nnx][nny] = st[x][y][bx][by] + 1;
-				if (mm[nnx][nny] == 'E') {
+				if (mm[nnx][nny] == 'E') 
+				{
 					cout << st[nx][ny][nnx][nny] - 1;
 					return 0;
 				}

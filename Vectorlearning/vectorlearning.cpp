@@ -152,8 +152,24 @@ void testunion()
 	}
 }
 
+void testDelStr()
+{
+	string a, b;
+	cin >> a >> b;
+	int lenb = b.size();
+	string::size_type start = a.find(b);
+	while (std::string::npos != start)
+	{
+		a.erase(start, lenb);
+		start = a.find(b);
+	}
+	std::cout << a << std::endl;
+}
+
 int VectorLearningMain()
 {
+	
+	testDelStr();
 	testunion();
 	SetLearningMain();
 	testString();

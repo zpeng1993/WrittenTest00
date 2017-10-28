@@ -48,3 +48,49 @@ int FindGCD(const int num1,const int num2)
 	}
 	return A;
 }
+
+void swap(int &A, int &B)
+{
+	int temp = A;
+	A = B;
+	B = temp;
+}
+
+
+
+/*
+
+快速排序
+不改变数据相互之间的顺序。
+
+*/
+int SteadyPartition(int A[], int start, int end)
+{
+	int x = A[end];
+	int i = start - 1;
+	for(int j = start; j <= end - 1; j++)
+	{
+		if (A[j] <= x)
+		{
+			++i;
+			swap(A[i], A[j]);
+		}
+	}
+	swap(A[i + 1], A[end]);
+	return i + 1;
+}
+
+bool IsPrimeNum(const int num)
+{
+	bool flag = true;
+	for (int i = 2; i<num / 2; i++)
+	{
+		if (num % i == 0)
+		{
+			flag = false;
+			break;
+		}
+
+	}
+	return flag;
+}

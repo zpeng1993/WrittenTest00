@@ -50,7 +50,10 @@ int main()
 		return 0;
 	}
 	cout << pstart << endl;
-	GetShortestDownload();
+	DoublePrimeNum();
+	//RemoveDiamond();
+//	GetShortestDownload();
+
 #endif
 
 #if Huawei

@@ -1,4 +1,5 @@
 #include "perfectworld.h"
+#include "platform.h"
 
 int reverse(char *start, char* end)
 {
@@ -227,7 +228,6 @@ void GetShortestDownload()
 		cur = vect[i];
 		trace.push_back(cur);
 	}
-	//reverse(trace.begin(), trace.end());
 	for (vector<int>::reverse_iterator it = trace.rbegin(); it != --trace.rend(); ++it)
 	{
 		cout << *it << "->";
@@ -236,3 +236,210 @@ void GetShortestDownload()
 	
 
 }
+
+void RemoveDiamond()
+{
+	const int RED = 0, GREEN = 1, BLUE = 2, YELLOW = 3, PURPLE = 4;
+	const int BUTT = 6;
+	int p[10][10] = {
+		{ RED, RED, BLUE, BLUE, GREEN, YELLOW, BLUE, YELLOW, RED, PURPLE },
+		{ GREEN, GREEN, GREEN, BLUE, RED, PURPLE, RED, YELLOW, YELLOW, BLUE },
+		{ BLUE, RED, RED, YELLOW, YELLOW, PURPLE, BLUE, GREEN, GREEN, BLUE },
+		{ YELLOW, RED, BLUE, YELLOW, BLUE, RED, PURPLE, GREEN, GREEN, RED },
+		{ YELLOW, RED, BLUE, BLUE, PURPLE, GREEN, PURPLE, RED, YELLOW, BLUE },
+		{ PURPLE, YELLOW, RED, RED, YELLOW, RED, PURPLE, YELLOW, RED, RED },
+		{ YELLOW, YELLOW, GREEN, PURPLE, GREEN, RED, BLUE, YELLOW, BLUE, GREEN },
+		{ RED, YELLOW, BLUE, BLUE, YELLOW, GREEN, PURPLE, RED, BLUE, GREEN },
+		{ GREEN, GREEN, YELLOW, YELLOW, RED, RED, PURPLE, BLUE, BLUE, GREEN },
+		{ PURPLE, BLUE, RED, RED, PURPLE, YELLOW, BLUE, RED, RED, GREEN }
+	};
+	int n;
+	string str_in;
+	while (getline(cin,str_in))
+	{
+		stringstream ss;
+		ss.clear();
+		ss << str_in;
+		vector<vector<int>> map(10,vector<int> (10));
+		for (int i = 0; i < 10; ++i)
+		{
+			for (int j = 0; j < 10; ++j)
+			{
+				map[i][j] = p[i][j];
+			}
+		}
+		int r = 0, g = 0, b = 0, y = 0, p = 0,t = 0;
+		vector<bool> changed(10);
+		while (ss>>n)
+		{
+			int startx = n / 10;
+			int starty = n % 10 - 1;
+			const int sample = map[startx][starty];
+			int count = 1;
+			for (int i = 0; i < 10; ++i)
+			{
+				changed[i] = false;
+			}
+			if (sample != 6)
+			{
+				changed[starty] = true;
+				//if ()
+				dfsdiamond(map, startx, starty, changed, sample, count);
+				if (count == 1)
+				{
+					map[startx][starty] = sample;
+				}
+				MapSlipDown(map, changed);
+				MapSlipLeft(map, changed);
+			}
+		}
+		for (int i = 0; i < 10; i++)
+		{
+			for (int j = 0; j < 10; j++)
+			{
+				switch (map[i][j])
+				{
+				case 0:r++; break;
+				case 1:g++; break;
+				case 2:b++; break;
+				case 3:y++; break;
+				case 4:p++; break;
+				default:t++; break;
+				}
+			}
+		}
+		cout << r << " " << g << " " << b << " " << y << " " << p << " "<< t << endl;
+	}
+}
+
+void dfsdiamond(vector<vector<int>> &map, int x, int y, vector<bool> &changed,const int &sample,int &count)
+{
+	int next[4][2] = { { 0, 1 }, { 0, -1 }, { 1, 0 }, { -1, 0 } };
+	//int sample = map[x][y];
+	map[x][y] = 6;
+	for (int i = 0; i < 4; i++)
+	{
+		int curx = x + next[i][0];
+		int cury = y + next[i][1];
+		if (curx < 10 && curx >=0 && cury < 10 && cury >=0 && map[curx][cury] == sample)
+		{
+			map[curx][cury] = 6;
+			count++;
+			changed[cury] = true;
+			dfsdiamond(map, curx, cury,changed,sample,count);
+		}
+	}
+}
+
+void MapSlipDown(vector<vector<int>> &map, vector<bool> &changed)
+{
+	for (int i = 0; i < 10; i++)
+	{
+		if (changed[i] == false)
+		{
+			continue;
+		}
+		else
+		{
+			int j = 9;
+			int k = 9;
+			while (j >= 0 && k >= 0)
+			{
+				while (j >= 0 && map[j][i] != 6)
+				{
+					j--;
+				}
+				if (j == -1 || j == 0) break;
+				k = j - 1;
+				while (k >= 0 && map[k][i] == 6)
+				{
+					k--;
+				}
+				if (k == -1 ) break;
+				swap(map[j][i], map[k][i]);
+				k--;
+				j--;
+			}
+			
+		}
+	}
+}
+
+void MapSlipLeft(vector<vector<int>> &map, vector<bool> &changed)
+{
+	for (int i = 8; i >= 0; i--)
+	{
+		if (changed[i] == false)
+		{
+			continue;
+		}
+		else
+		{
+			int j = 9;
+			while (j >= 0 && map[j][i] == 6)
+			{
+				j--;
+			}
+			if (j == -1)
+			{
+				for (int k = i; k < 9; k++)
+				{
+					for (int row = 0; row < 10; row++)
+					{
+						swap(map[row][k] , map[row][k + 1]);
+					}
+				}
+			}
+		}
+	}
+}
+
+void DoublePrimeNum()
+{
+	cout << "Function DoublePrime---------------------" << endl;
+	cout << "cin two integer:" << endl;
+	int m, n;
+	cin >> m >> n;
+	vector<int> vect;
+	for (int i = m; i <= n; i++)
+	{
+		if (IsPrimeNum(i))
+		{
+			vect.push_back(i);
+		}
+	}
+	if (vect.size() == 0)
+	{
+		cout << "no" << endl;
+	}
+	else
+	{
+		vector<int> print;
+		vector<int>::iterator it;
+		for (int j = 1; j<vect.size(); j++)
+		{
+			if (vect[j] == vect[j - 1] + 2)
+			{
+				print.push_back(vect[j - 1]);
+				print.push_back(vect[j]);
+			}
+		}
+		if (print.size() == 0)
+		{
+			cout << "no" << endl;
+		}
+		else
+		{
+			sort(print.begin(), print.end());
+			it = unique(print.begin(), print.end());
+			for (vector<int>::iterator iter = print.begin(); iter != it - 1; ++iter)
+			{
+				cout << *iter << " ";
+			}
+			cout << *(--it) << endl;
+		}
+		
+
+	}
+}
+

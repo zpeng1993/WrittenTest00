@@ -3,7 +3,7 @@
 #include "switch.h"
 
 int ByteDanceMain();
-bool valid(int x, int y);
+
 int ByteDancePushBox();
 
 int maxSubmatrixSum(std::vector<std::vector<int>>matrix, int n, int m);
