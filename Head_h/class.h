@@ -3,6 +3,12 @@
 #include "switch.h"
 using namespace std;
 
+typedef struct CoderNode_S
+{
+	string  str;
+	int count;
+}CoderNode;
+
 struct TreeNode 
 {
 	int val;
@@ -80,6 +86,32 @@ public:
 	}
 };
 
+class FindCoder
+{
+public:
+	FindCoder();
+	void Intial();
+	void start();
+
+	vector<string> findCoder(vector<string> A, int n);
+private:
+	vector<string> str;
+
+};
+
+class NewCoder
+{
+public:
+	void start();
+	int canCompleteCircuit(vector<int> &gas, vector<int> &cost);
+
+private:
+	vector<int> gas;
+	vector<int> cost;
+};
+
 int ClassMain();
 
 #endif
+
+

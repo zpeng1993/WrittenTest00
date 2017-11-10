@@ -49,12 +49,7 @@ int FindGCD(const int num1,const int num2)
 	return A;
 }
 
-void swap(int &A, int &B)
-{
-	int temp = A;
-	A = B;
-	B = temp;
-}
+
 
 
 
@@ -93,4 +88,52 @@ bool IsPrimeNum(const int num)
 
 	}
 	return flag;
+}
+
+long long pow(int x, int y)
+{
+  	long long total = 1;
+	while(y)
+    {
+    	total *= x;
+    	y--;
+    }
+  	return total;
+}
+
+void GetNumsFromString(const string str, vector < int > & nums)
+{
+	int i=0;
+	i = str.find_first_not_of('[');
+	while (i < static_cast<int>(str.size()))
+	{
+		int flag = 1;
+		int temp = 0;
+		if (str[i] == '-' || (str[i] >= '0' && str[i] <= '9'))
+		{
+			if (str[i] == '-')
+			{
+				flag =  -1;
+				i++;
+			}
+			if (str[i] >= '0' && str[i] <= '9')
+			{
+				while (str[i] >= '0' && str[i] <= '9')
+				{
+					temp = temp * 10 + (str[i++] - '0');
+				}
+				if (temp >= INT_MAX) temp = INT_MAX;
+			}
+			nums.push_back(temp*flag);
+		}
+		else
+		{
+			i++;
+		}
+	}
+}
+
+int OwnRound(double x)
+{
+	return static_cast<int>((x > 0.0000001) ? (x + 0.5) : (x - 0.5));
 }

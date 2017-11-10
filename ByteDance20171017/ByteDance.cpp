@@ -170,7 +170,7 @@ int maxSubmatrixSum(const vector<vector<int>> &arr)
 			total[i][j] = total[i - 1][j] + arr[i][j];
 		}
 	}
-	int max = -1000;
+	int max = 0x8000;
 	vector<int> result(n);
 	for (int i = 0; i < m; i++)
 	{

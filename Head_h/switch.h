@@ -8,9 +8,10 @@
 #include <bitset>
 #include <algorithm>
 #include <string>
-
+#include <assert.h>
 #include <stack>
 #include <windows.h>
+#include <iomanip>
 
 using namespace std;
 
@@ -21,11 +22,11 @@ using namespace std;
 //function switch
 #define PerfectWorld ( 0x1  & SWITCH )
 #define Huawei ( 0x2 & SWITCH ) 
-#define VectorLearning ( 0x3 )
+#define VectorLearning ( 0x3 & SWITCH )
 #define KingMethods ( 0x4 & SWITCH )
 #define AcmCoder ( 0x5 & SWITCH )
 #define Aha (0x6 & SWITCH )
-#define Class (0x7 & SWITCH )
+#define Class (0x7  )
 #define CSDN (0x8 & SWITCH )
 #define Aqiyi (0x9 & SWITCH)
 #define Dcits (0x10 & SWITCH )

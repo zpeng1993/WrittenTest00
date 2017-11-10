@@ -1,5 +1,6 @@
 #include "perfectworld.h"
 #include "platform.h"
+#include "publictemplate.cpp"
 
 int reverse(char *start, char* end)
 {
@@ -171,10 +172,10 @@ void GetShortestDownload()
 		//map[iter2 - vect.begin()][iter1 - vect.begin()] = weigh;
 		
 	}
-	for (i = 0; i < vect.size(); i++)
+	for (i = 0; i < static_cast<int>(vect.size()); i++)
 	{
 		map[i][i] = 0;
-		for (j = 0; j < vect.size(); j++)
+		for (j = 0; j < static_cast<int>(vect.size()); j++)
 		{
 			cout << map[i][j] << " ";
 		}
@@ -183,17 +184,17 @@ void GetShortestDownload()
 	iter1 = find(vect.begin(), vect.end(), start);
 	iter2 = find(vect.begin(), vect.end(), end);
 	vector<NodeInfo> dis;
-	for (i = 0; i < vect.size(); i++)
+	for (i = 0; i < static_cast<int>(vect.size()); i++)
 	{
 		dis.push_back({ iter1-vect.begin(), map[iter1 - vect.begin()][i] });
 	}
 	vector<bool> used(vect.size(), false);
 	used[iter1-vect.begin()] = true;
 
-	for(i=0;i<vect.size();i++)
+	for (i = 0; i< static_cast<int>(vect.size()); i++)
 	{
 	    min = 999999;
-		for(j=0;j<vect.size();j++)
+		for (j = 0; j< static_cast<int>(vect.size()); j++)
 		{
 			if(used[j] == false && dis[j].distance < min)
 			{
@@ -202,7 +203,7 @@ void GetShortestDownload()
 			}
 		}
 		used[cur] = true;
-		for(j=0;j<vect.size();j++)
+		for (j = 0; j< static_cast<int>(vect.size()); j++)
 		{
 			if(map[cur][j]<999999 && j != cur)
 			{
@@ -214,7 +215,7 @@ void GetShortestDownload()
 			}
 		}
 	}
-	for(i=0;i<dis.size();i++)
+	for (i = 0; i< static_cast<int>(dis.size()); i++)
 	{
 		cout << dis[i].distance << TwoSpaceKey;
 	}
@@ -356,7 +357,7 @@ void MapSlipDown(vector<vector<int>> &map, vector<bool> &changed)
 					k--;
 				}
 				if (k == -1 ) break;
-				swap(map[j][i], map[k][i]);
+				OwnSwap(map[j][i], map[k][i]);
 				k--;
 				j--;
 			}
@@ -416,7 +417,7 @@ void DoublePrimeNum()
 	{
 		vector<int> print;
 		vector<int>::iterator it;
-		for (int j = 1; j<vect.size(); j++)
+		for (int j = 1; j< static_cast<int>(vect.size()); j++)
 		{
 			if (vect[j] == vect[j - 1] + 2)
 			{
@@ -438,8 +439,6 @@ void DoublePrimeNum()
 			}
 			cout << *(--it) << endl;
 		}
-		
-
 	}
 }
 

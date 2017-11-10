@@ -1,5 +1,10 @@
 #include "class.h"
 
+bool CoderCompare(const CoderNode A, const CoderNode B)
+{
+	return A.count > B.count;
+}
+
 int Solution::sumNumbers(TreeNode *root)
 {
 	vector<TreeNode*> pTNode;
@@ -96,7 +101,7 @@ int LongestConsecutiveSequence::longestConsecutive(vector<int> &num)
 	}
 	int Cur = 1, result = 0x80000000;
 	sort(num.begin(), num.end());
-	for (int i = 1; i<num.size(); i++)
+	for (int i = 1; i< static_cast<int>(num.size()); i++)
 	{
 		if (num[i] == num[i - 1] + 1)
 		{
@@ -157,6 +162,10 @@ int  ClassMain()
 	A &a = b;
 	a.Fun();
 
+	FindCoder fd;
+	fd.Intial();
+	fd.start();
+
 	Solution tree;
 	tree.InitTree();
 	tree.start();
@@ -165,5 +174,103 @@ int  ClassMain()
 	LCS.start();
 
 	return RET_OK;
+}
+
+FindCoder::FindCoder()
+{
+	str.push_back("\0");
+}
+
+void FindCoder::Intial()
+{
+	str.push_back("i am a coder");
+	str.push_back("Coder Coder");
+	str.push_back("Code");
+}
+
+void FindCoder::start()
+{
+	vector<string> result = findCoder(str, str.size());
+	for (int i = 0; i < static_cast<int>(result.size()); ++i)
+	{
+		cout << result[i] << endl;
+	}
+}
+
+vector<string> FindCoder::findCoder(vector<string> A, int n)
+{
+	vector<CoderNode> vect;
+	vector<string> result;
+	const string _Coder = "coder";
+	const int len = _Coder.size();
+
+	for (int i = 0; i < n; ++i)
+	{
+		int count = 0;
+		int begin = -1;
+		string CurStr = A[i];
+		transform(A[i].begin(), A[i].end(), CurStr.begin(), ::tolower);
+		while ((begin = CurStr.find(_Coder, begin + 1)) != string::npos)
+		{
+			++count;
+		}
+		if (count)
+		{
+			vect.push_back({ A[i], count });
+		}
+	}
+	stable_sort(vect.begin(), vect.end(),CoderCompare);
+	for (vector<CoderNode>::iterator it = vect.begin(); it != vect.end(); ++it)
+	{
+		result.push_back((*it).str);
+	}
+	return result;
+}
+
+void NewCoder::start()
+{
+	//initial
+	gas.push_back(0);
+	cost.push_back(0);
+	cout << endl << canCompleteCircuit(gas,cost) << endl;
+}
+
+int NewCoder::canCompleteCircuit(vector < int > & gas, vector < int > & cost)
+{
+	assert(gas.size() == cost.size());
+	const int len = gas.size();
+	int i = 0;
+	int start = -1, end = 0;
+	vector<bool> flag(gas.size(), false);
+	for (i = 0; i < gas.size(); ++i)
+	{
+		if (gas[i] >= cost[i])
+		{
+			int remain = gas[i] - cost[i];
+			flag.assign(len, false);
+			flag[i] = true;
+			start = i;
+			end = (start + 1) % len;
+			while (flag[end] != true)
+			{
+				remain += gas[end] - cost[end];
+				if (remain < 0)
+				{
+					break;
+				}
+				flag[end] = true;
+				end = (end + 1) % len;
+			}
+			if (end == start)
+			{
+				break;
+			}		
+		}
+	}
+	if (end != start)
+	{
+		start = -1;
+	}
+	return start;
 }
 

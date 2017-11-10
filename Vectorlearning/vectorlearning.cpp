@@ -166,9 +166,20 @@ void testDelStr()
 	std::cout << a << std::endl;
 }
 
+int BuyNut(int days){//完成该函数功能，不需要写main()调用函数，系统会自动调用
+	int n = days;
+	vector<int> vect(n);
+	vect[n - 1] = 1;
+	for (int i = n - 2; i >= 0; --i)
+	{
+		vect[i] = vect[i + 1] * 2 + 2;
+	}
+	return vect[0];
+}
+
 int VectorLearningMain()
 {
-	
+	cout << BuyNut(10);
 	testDelStr();
 	testunion();
 	SetLearningMain();

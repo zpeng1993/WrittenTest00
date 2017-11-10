@@ -3,7 +3,6 @@
 
 void DcitsTest1()
 {
-	int i;
 	char str[MAXLEN];
 	cin >> str;
 	char* p = str;
